@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const fn = function(n) {
+        if (n === 1) return 1;
+        const rse = n * fn(n - 1);
+        return rse;
+      };
+      const aaa = fn(5);
+
+      console.log(aaa);
+    </script>
+  </body>
+</html>
