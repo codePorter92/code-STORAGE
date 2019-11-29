@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <title>Hero - Admin</title>
   <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+  <!-- 引入JQuery插件 -->
+  <!-- <script src="/node_modules/jquery-1.12.2.js"></script> -->
 </head>
 
 <body>
@@ -17,8 +19,27 @@
     <p><strong>Id:</strong>{{id}}</p>
     <p><strong>姓名:</strong>{{name}}</p>
     <p><strong>性别:</strong>{{gender}}</p>
-    <p><strong>添加时间:</strong>{{ctime}}</p>
+    <p><strong>地址:</strong>{{address}}</p>
+    <p><strong>添加时间:</strong>{{date}}</p>
   </div>
+
+  <!-- <script>
+    $(function () {
+      
+      $.ajax({
+        type: "get",
+        url: '/getOneHero',
+        data: {
+          // 旧语法：id:id
+          id
+        },
+        dataType: 'json',
+        success: function (res) {
+          console.log(res);
+        }
+      })
+    })
+  </script> -->
 </body>
 
 </html>

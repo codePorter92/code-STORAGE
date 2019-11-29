@@ -30,11 +30,39 @@
           </label>
         </div>
       </div>
-      <button type="submit" class="btn btn-success">点击保存</button>
+      <div class="form-group">
+        <label>地址</label>
+        <input type="text" name="address" class="form-control" placeholder="请输入英雄地址">
+      </div>
+      <button type="submit" class="btn btn-success" id="add">添加英雄</button>
     </form>
   </div>
-  <script src="/node_modules/jquery/dist/jquery.js"></script>
+  <script src="/node_modules/jquery-1.12.2.js"></script>
+  <script>
+    $(function () {
+
+      $('#add').on('click', function (e) {
+        e.preventDefault()
+        let data = $('#form').serialize();
+        console.log('表单数据是', data);
+        $.ajax({
+          type: 'post',
+          url: "/addHeroInfo",
+          data: data,
+          dataType: 'json',
+          success: function (res) {
+            console.log(res.code)
+            if (res.code === "200") {
+              location.href = './index.html'
+            }
+            else {
+              location.reload()
+            }
+          }
+        })
+      })
+    })
+  </script>
 </body>
 
 </html>
-
