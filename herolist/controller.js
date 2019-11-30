@@ -82,6 +82,21 @@ module.exports = {
             })
         })
     },
+    deletHeroInfo(req, res) {
+        let urlObj = urlModel.parse(req.url, true);
+        let id = urlObj.query.id
+        model.deletHeroInfo(id, (result) => {
+            if (result) return res.end(JSON.stringify({
+                code: "200",
+                msg: "删除成功"
+            }));
+            res.end(JSON.stringify({
+                code: '201',
+                msg: "删除失败"
+            }))
+        })
+
+    },
     getOneHero(req, res) {
         let urlObj = urlModel.parse(req.url, true);
         let id = urlObj.query.id

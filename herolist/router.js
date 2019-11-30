@@ -26,7 +26,11 @@ module.exports = function (req, res) {
         controller.getAddPage(req, res)
     } else if (method === "POST" && pathname === "/addHeroInfo") {
         controller.addheroInfo(req, res)
+    } else if (method === "GET" && pathname === "/deletHeroInfo") {
+        console.log(11)
+        controller.deletHeroInfo(req, res)
     } else if (method === "GET" && pathname === "/getOneHero") {
+        // 英雄个人数据获取的编辑
         controller.getOneHero(req, res)
     } else {
         res.writeHeader(200, {

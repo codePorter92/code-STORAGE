@@ -36,7 +36,7 @@
           <td>
             <a href="./views/info.html?id={{$value.id}}">查看</a>
             <a href="./views/edit.html?id={{$value.id}}">编辑</a>
-            <a href="javaScript:void(0)" data-id="{{$value.id}}">删除</a>
+            <a href="javaScript:void(0)" data-id="{{$value.id}}" class="btn-delete">删除</a>
           </td>
         </tr>
         {{/each}}
@@ -87,6 +87,30 @@
       </tbody>
     </table>
   </div>
+  <script>
+    $(function () {
+      // console.log($('#btn-delete'))
+      $('.btn-delete').on('click', function () {
+        // console.log('进来了')
+        // 获取自定义属性的方法.data()获取取出来的值是一个对象
+        let idid = $(this).attr('data-id')
+        // console.log(idid)
+        $.ajax({
+          type: "get",
+          url: "/deletHeroInfo",
+          data: {
+            id: idid
+          },
+          dataType: 'json',
+          success: function (res) {
+            console.log(res);
+          }
+        })
+      })
+    })
+
+
+  </script>
 </body>
 
 </html>

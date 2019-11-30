@@ -43,5 +43,21 @@ module.exports = {
                 callback(true)
             })
         })
+    },
+    deletHeroInfo(id, callback) {
+        this.getAllHero((err, data) => {
+            if (err) return callback(false)
+            let heroArr = JSON.parse(data);
+            heroArr.some((item, index) => {
+                if (id == item.id) {
+                    heroArr.splice(index, 1)
+                }
+            })
+            console.log('英雄列表是', heroArr)
+            fs.writeFile(path.join(__dirname, '/hero.json'), JSON.stringify(heroArr), err => {
+                if (err) return callback(false);
+                callback(true)
+            })
+        })
     }
 }
